@@ -12,25 +12,26 @@ app.get('/', function(request, response){
     response.end();
 });
 
+
 app.get('/player', function(request, response){
        response.writeHead(200);
        response.write("<html><body><h1>Displays all players </h1></body></html>");
        response.end();
 });
 
-app.get('player/:playername', function(request, response){
-    const player = request.params.playerName;
+app.get('/player/:playername', function(request, response){
+    const player = request.params.playername;
        response.writeHead(200);
-       response.write("<html><body><h1>Displays a player</h1></body></html>");
+       response.write("<html><body><h1>Displays " + player + "</h1></body></html>");
         response.end();
 });
 
-app.post('player', function(request, response){
+app.post('/player', function(request, response){
     response.writeHead(200);
     response.write("<html><body><h1>User should post a new player here</h1></body></html>")
 });
 
-app.delete('player/:playername', function(request, response) {
+app.delete('/player/:playername', function(request, response) {
    const player = request.params.playername;
       response.writeHead(200);
        response.write("<html><body><h1>Hello, you have terminated " + player + "</h1></body></html>");
@@ -38,24 +39,24 @@ app.delete('player/:playername', function(request, response) {
     
 });
 
-app.put('player/:playername', function(request, response) {
+app.put('/player/:playername', function(request, response) {
     const player = request.params.playername;
      response.writeHead(200);
-     response.write("<html><body><h1>Hello, you have updated" + player + "</h1></body></html>");
+     response.write("<html><body><h1>Hello, you have updated " + player + "</h1></body></html>");
      response.end();
      
 })
 
 app.get('/item', function(request, response){
        response.writeHead(200);
-       response.write("<html><body><h1>Displays all players </h1></body></html>");
+       response.write("<html><body><h1>Displays all items </h1></body></html>");
        response.end();
 });
 
 app.get('/item/:itemname', function(request, response){
-    const item = request.params.playerName;
+    const item = request.params.itemname;
        response.writeHead(200);
-       response.write("<html><body><h1>Displays a player</h1></body></html>");
+       response.write("<html><body><h1>Displays the item: " + item + "</h1></body></html>");
         response.end();
 });
 
@@ -72,7 +73,7 @@ app.delete('/item/:itemname', function(request, response) {
     
 });
 
-app.put('item/:itemname', function(request, response) {
+app.put('/item/:itemname', function(request, response) {
     const item = request.params.itemname;
      response.writeHead(200);
      response.write("<html><body><h1>Hello, you have updated" + item + "</h1></body></html>");
@@ -89,7 +90,7 @@ app.get('/location', function(request, response){
 app.get('/location/:locationname', function(request, response){
     const location = request.params.locationname;
        response.writeHead(200);
-       response.write("<html><body><h1>Displays a location</h1></body></html>");
+       response.write("<html><body><h1>Displays a location: " + location + "</h1></body></html>");
         response.end();
 });
 
@@ -106,14 +107,13 @@ app.delete('/location/:locationname', function(request, response) {
     
 });
 
-app.put('location/:locationname', function(request, response) {
+app.put('/location/:locationname', function(request, response) {
     const location = request.params.locationname;
      response.writeHead(200);
-     response.write("<html><body><h1>Hello, you have updated" + location + "</h1></body></html>");
+     response.write("<html><body><h1>Hello, you have updated " + location + "</h1></body></html>");
      response.end();
      
 })
-
 
 
 
